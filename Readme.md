@@ -2,8 +2,6 @@
 
 BookHub, kullanıcıların kitaplarını ekleyip birbirleriyle takas edebildiği bir kitap paylaşım platformudur. PHP (OOP + PDO) ve MySQL ile geliştirilmiştir.
 
-![Ana sayfa](docs/screenshots/home.png)
-
 ## Özellikler
 
 - Kullanıcı kayıt ve giriş sistemi
