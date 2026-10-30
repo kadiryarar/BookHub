@@ -1,0 +1,3 @@
+# Kullanıcıların yüklediği kitap görselleri
+images/*
+!images/.gitkeep

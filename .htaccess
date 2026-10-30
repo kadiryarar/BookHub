@@ -1,0 +1,47 @@
+RewriteEngine On 
+
+# Anasayfa
+RewriteRule ^$ index.php
+RewriteRule ^home?$ index.php
+
+# Kitaplar
+RewriteCond %{THE_REQUEST} \s/BookHub/books/?\?keyword=([^\s&]+) [NC]
+RewriteRule ^ /BookHub/books/search/%1? [R=301,NE,L]
+RewriteRule ^books/page/([0-9]+)/?$ books.php?page=$1 [L,QSA]
+RewriteRule ^books/?$ books.php [L,QSA]
+RewriteRule ^books/search/([^/]+)/([0-9]+)/?$ books.php?keyword=$1&page=$2 [B,L,QSA]
+RewriteRule ^books/search/([^/]+)/?$ books.php?keyword=$1 [B,L,QSA]
+RewriteRule ^books/category/([^/]+)/([0-9]+)/?$ books.php?category=$1&page=$2 [L,QSA]
+RewriteRule ^books/category/([^/]+)/?$ books.php?category=$1 [L,QSA]
+RewriteRule ^books/([^/]+)/([0-9]+)?$ book-detail.php?slug=$1&id=$2 [L,QSA]
+
+# Kategoriler
+RewriteRule ^categories?$ categories.php
+
+# Giriş, Çıkış ve Kayıt 
+RewriteRule ^login?$ login.php
+RewriteRule ^logout?$ logout.php
+RewriteRule ^register?$ register.php
+
+# Hata Sayfaları 
+RewriteRule ^403?$ errors/403.php
+RewriteRule ^401?$ errors/401.php
+ErrorDocument 404 /BookHub/errors/404.php
+
+# Admin Hesabı
+RewriteRule ^admin/dashboard?$ admin/index.php
+RewriteRule ^admin/dashboard?$ admin/index.php?page=dashboard [L] 
+RewriteRule ^admin/users?$ admin/index.php?page=users [L] 
+RewriteRule ^admin/categories/?$ admin/index.php?page=categories&p=1 [L]
+RewriteRule ^admin/categories/([0-9]+)?$ admin/index.php?page=categories&p=$1 [L] 
+RewriteRule ^admin/pending?$ admin/index.php?page=pending&p=1 [L] 
+RewriteRule ^admin/pending/([0-9]+)?$ admin/index.php?page=pending&p=$1 [L] 
+
+# Profil Hesabı 
+RewriteRule ^([a-zA-Z0-9_-]+)/books?$ profil/index.php?username=$1&page=books&p=1 [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/books/([0-9]+)?$ profil/index.php?username=$1&page=books&p=$2 [L] 
+RewriteRule ^([a-zA-Z0-9_-]+)/favorites?$ profil/index.php?username=$1&page=favorites [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/favorites/([0-9]+)?$ profil/index.php?username=$1&page=favorites&p=$2 [L] 
+RewriteRule ^([a-zA-Z0-9_-]+)/trades?$ profil/index.php?username=$1&page=trades [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/trades/([0-9]+)?$ profil/index.php?username=$1&page=trades&p=$2 [L] 
+RewriteRule ^([a-zA-Z0-9_-]+)/settings?$ profil/index.php?username=$1&page=settings [L]
