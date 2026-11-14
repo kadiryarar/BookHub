@@ -28,4 +28,4 @@ PHP (OOP, PDO) · MySQL / MariaDB · HTML · CSS · Bootstrap 5.3.3 · Bootstrap
 
 ## Geliştirici
 
-**Adınız Soyadınız** · [@kadiryarar](https://github.com/kadiryarar)
+· [@kadiryarar](https://github.com/kadiryarar)
